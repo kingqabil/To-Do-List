@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 /* Select all the necessary Elements  */
 const input = document.querySelector('.todo_input');
 const MainTodoContainer = document.getElementById('todos')
@@ -92,14 +90,3 @@ function deleteAllElements(){
     }
     input.value = '';
 }
-
-function component() {
-    const element = document.createElement('div');
-
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
-  }
-
-  document.body.appendChild(component());
