@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+/* eslint-disable no-plusplus */
 /* Select all the necessary Elements  */
 const input = document.querySelector('.todo_input');
 const MainTodoContainer = document.getElementById('todos')
