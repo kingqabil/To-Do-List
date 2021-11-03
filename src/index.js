@@ -1,20 +1,21 @@
+import './style.css';
 const listContainer = document.querySelector('.todolist-tasks-list');
 
 const lists = [{
   index: 1,
-  completed: [true, false],
+  completed: false,
   description: 'Morning Exercise',
 }, {
   index: 2,
-  completed: [true, false],
+  completed: false,
   description: 'Prepare For Work',
 }, {
   index: 3,
-  completed: [true, false],
+  completed: false,
   description: 'Shopping',
 }, {
   index: 5,
-  completed: [true, false],
+  completed: false,
   description: 'Sleep Early',
 },
 ];
