@@ -201,6 +201,7 @@
     "get-stream": "^5.2.0",
     "get-symbol-description": "^1.0.0",
     "getpass": "^0.1.7",
+    "gh-pages": "^3.2.3",
     "glob": "^7.2.0",
     "glob-parent": "^5.1.2",
     "global-dirs": "^3.0.0",
@@ -593,6 +594,7 @@
     "watch": "webpack --watch",
     "server": "node server.js",
     "start": "webpack serve --open",
+    "deploy": "gh-pages -d dist",
     "build": "webpack"
   },
   "repository": {
