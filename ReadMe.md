@@ -7,7 +7,7 @@
 
 ## Live Demo 👀
 
-- [Live Demo Link](https://kingqabil.github.io/To-Do-List/)
+- [Click To See The Live Demo](https://kingqabil.github.io/To-Do-List/)
 
 ## Built With 🔨
 
