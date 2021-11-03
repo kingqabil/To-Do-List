@@ -12,19 +12,11 @@
 - JAVASCRIPT
 - WEBPACK
 
-### Install
-
-To get a local copy up and running follow these simple example steps.
-- Open terminal
-- Clone this project by command git clone https://github.com/kingqabil/To-Do-List.git
-- Cd OnlineCourse-FInalCapstone folder
-- Open index.html in the browser (you can use Live Server in Visual Studio Code)
-
-## Getting Started
-
-- In index.html file is the main makeup that will show as the first page in the browser.
-- In the css folder, you will find the CSS file that contains all applicated designs on this project.
-- Img folder contains most of the pictures that have been in use for this project
+## Getting started
+1. Clone the project
+2. Installing the packages
+3. On the cmd run `npm run build`
+4. Run `npm start`
 
 ### Prerequisites
 
