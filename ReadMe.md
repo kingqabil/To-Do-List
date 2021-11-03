@@ -12,10 +12,6 @@
 - JAVASCRIPT
 - WEBPACK
 
-## Live Demo 👀
-
-- [Live Demo Link](https://kingqabil.github.io/To-Do-List/)
-
 ### Install
 
 To get a local copy up and running follow these simple example steps.
