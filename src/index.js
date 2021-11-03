@@ -1,94 +1,60 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable no-plusplus */
-/* Select all the necessary Elements  */
-const input = document.querySelector('.todo_input');
-const MainTodoContainer = document.getElementById('todos')
-const addingButton = document.querySelector('.add-item');
-const deleteAllBtn = document.querySelector('.deleteBtn');
-const completedButton = document.querySelector('.completed');
-const removeButton = document.querySelector('.trash');
+const listContainer = document.querySelector('.todolist-tasks-list');
 
-addingButton.addEventListener('click', function(e){
-    /* stoping button behaviour */
-    e.preventDefault();
+const lists = [{
+  index: 1,
+  completed: [true, false],
+  description: 'Morning Exercise',
+}, {
+  index: 2,
+  completed: [true, false],
+  description: 'Prepare For Work',
+}, {
+  index: 3,
+  completed: [true, false],
+  description: 'Shopping',
+}, {
+  index: 5,
+  completed: [true, false],
+  description: 'Sleep Early',
+},
+];
 
-    /* Create all the elements */
-    if(input.value.trim()){
-        /* UL Tag */
-        const ulTag = document.createElement('ul');
-        ulTag.classList.add('todo-list-container');
-        /* Todo list div */
-        const todoList = document.createElement('div');
-        todoList.classList.add('todo-list');
-        /* LI Tag */
-        const liTag = document.createElement('li');
-        liTag.innerText = input.value;
-        liTag.classList.add('todo-item');
-        /* Button Div */
-        const buttonDiv = document.createElement('div');
-        buttonDiv.classList.add('button');
-        /* completed button element1 */
-        const completeButton = document.createElement('button');
-        completeButton.classList.add('completed');
-        completeButton.innerHTML = '<i class="fas fa-check"></i>';
-        /* Edit Button */
-        const editBtn = document.createElement('button');
-        editBtn.innerHTML = '<i class="far fa-edit"></i>';
-        editBtn.classList.add('editBtn');
-        editBtn.onclick = function(){
-            editWorking(liTag);
-        }
-        /* trash button element2 */
-        const trashButton = document.createElement('button');
-        trashButton.classList.add('trash');
-        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
 
-        /* Appending Elements into each other */
-        ulTag.appendChild(todoList);
-        todoList.appendChild(liTag);
-        todoList.appendChild(buttonDiv);
-        buttonDiv.appendChild(completeButton);
-        buttonDiv.appendChild(editBtn);
-        buttonDiv.appendChild(trashButton);
-
-        /* if input is empty then don't display empty list in DOM */
-        MainTodoContainer.appendChild(ulTag);
-
-            /* sessionStorage */
-        /* when the add button click clear the input value */
-        input.value = '';
-        /* complete and trash button working */
-        todoList.addEventListener('click', function(e){
-            const items = e.target;
-            if(items.classList[0] === 'completed'){
-                const todo = items.parentElement;
-                const todo2 = todo.parentElement;
-                todo2.classList.add('line_through')
-            }
-            else if(items.classList[0] === 'trash'){
-                const todo = items.parentElement;
-                const todo2 = todo.parentElement;
-                todo2.classList.add('fall');
-                todo2.addEventListener('transitionend', function(){
-                    const todo3 = todo2.parentElement;
-                    todo3.remove();
-                });
-            }
-        });
-    }else if(input.value === ''){
-        alert('please fill the input field')
-    }
+lists.sort((a, b) => {
+  const keyA = a.index;
+  const keyB = b.index;
+  if (keyA < keyB) return -1;
+  if (keyA > keyB) return 1;
+  return 0;
 });
 
+function render() {
+  clearElement(listContainer);
+  lists.forEach((list) => {
+    const listElement = document.createElement('li');
+    const divElement = document.createElement('div');
+    const ptagElement = document.createElement('p');
+    const checkboxElement = document.createElement('input');
+    const iconElement = document.createElement('i');
+    listElement.dataset.listId = list.id;
+    divElement.classList.add('li-content');
+    checkboxElement.classList.add('checkbox');
+    iconElement.classList.add('material-icons');
+    checkboxElement.type = 'checkbox';
+    ptagElement.contentEditable = 'true';
+    ptagElement.innerText = list.description;
+    iconElement.innerText = 'more_vert';
+    listContainer.appendChild(listElement);
+    listElement.appendChild(divElement);
+    listElement.appendChild(iconElement);
+    divElement.appendChild(checkboxElement);
+    divElement.appendChild(ptagElement);
+  });
+}
 
-function editWorking(e){
-    const editValue = prompt('edit the select item', e.firstChild.nodeValue);
-    e.firstChild.nodeValue = editValue;
-}
-function deleteAllElements(){
-    const gettingUlTag = document.querySelectorAll('.todo-list-container');
-    for(const i = 0; i < gettingUlTag.length; i++){
-        gettingUlTag[i].remove();
-    }
-    input.value = '';
-}
+render();
