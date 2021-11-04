@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <title>To-Do-List</title>
+    <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://use.fontawesome.com/0fc6e5cebc.js"></script>
 <script defer src="/To-Do-List/main.js"></script></head>
+
 <body>
-    <div class="todolist-container">
-        <div class="todolist-title d-flex">
-            <h1>Today's To Do List</h1>
-            <i class="material-icons rotate">autorenew</i>
+    <h1 class="header text-center">Today's To Do List</h1>
+    <div class="card">
+        <div class="card-header">Organize your day...</div>
+        <div class="input-group">
+            <input id="input" type="text" class="form-control" placeholder="Enter task...">
+            <button id="addBtn" class="btn btn-outline-secondary" type="button"><i
+                    class="fas fa-level-down-alt fa-rotate-90"></i></button>
+            <button id="refBtn" class="btn btn-outline-secondary" type="button"><i
+                        class="fas  fa-refresh fa-rotate-90"></i></button>
         </div>
-        <form class="form d-flex">
-            <input type="text" name="add_item" id="add_item" class="add_item" placeholder="Add to your list...">
-            <i class="material-icons">keyboard_return</i>
-        </form>
-        <ul class="todolist-tasks-list"> </ul>
-        <div class="clearBtn d-flex">
-            <a href="#">Clear all completed</a>
+        <div id="list" class="card-body">
+
         </div>
+        <div class="card-footer text-center"><button id="clearBtn" class="btn btn-outline-secondary" type="button">Clear
+                All
+                Completed</button></div>
     </div>
+
 </body>
+
 </html>
