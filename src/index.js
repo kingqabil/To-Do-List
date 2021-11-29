@@ -1,61 +1,27 @@
 import './style.css';
-const listContainer = document.querySelector('.todolist-tasks-list');
+import display from './display.js';
+import clearAll from './clearAll.js';
+import add from './addItem.js';
+import indexUpdate from './indexUpdate.js';
+import addByEnter from './addByEnter.js';
+import getFromStorage, { saveInStorage } from './storage.js';
 
-const lists = [{
-  index: 1,
-  completed: false,
-  description: 'Morning Exercise',
-}, {
-  index: 2,
-  completed: false,
-  description: 'Prepare For Work',
-}, {
-  index: 3,
-  completed: false,
-  description: 'Shopping',
-}, {
-  index: 5,
-  completed: false,
-  description: 'Sleep Early',
-},
-];
-
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
-
-lists.sort((a, b) => {
-  const keyA = a.index;
-  const keyB = b.index;
-  if (keyA < keyB) return -1;
-  if (keyA > keyB) return 1;
-  return 0;
+document.getElementById('addBtn').addEventListener('click', () => {
+  add();
+  const list = getFromStorage();
+  indexUpdate(list);
+  saveInStorage(list);
+  display(list);
 });
 
-function render() {
-  clearElement(listContainer);
-  lists.forEach((list) => {
-    const listElement = document.createElement('li');
-    const divElement = document.createElement('div');
-    const ptagElement = document.createElement('p');
-    const checkboxElement = document.createElement('input');
-    const iconElement = document.createElement('i');
-    listElement.dataset.listId = list.id;
-    divElement.classList.add('li-content');
-    checkboxElement.classList.add('checkbox');
-    iconElement.classList.add('material-icons');
-    checkboxElement.type = 'checkbox';
-    ptagElement.contentEditable = 'true';
-    ptagElement.innerText = list.description;
-    iconElement.innerText = 'more_vert';
-    listContainer.appendChild(listElement);
-    listElement.appendChild(divElement);
-    listElement.appendChild(iconElement);
-    divElement.appendChild(checkboxElement);
-    divElement.appendChild(ptagElement);
-  });
-}
+document.getElementById('clearBtn').addEventListener('click', () => {
+  const list = getFromStorage();
+  clearAll(list);
+});
 
-render();
+document.querySelector('.form-control').addEventListener('keypress', (event) => addByEnter(event, add));
+
+const list = indexUpdate(getFromStorage());
+
+display(list);
+
