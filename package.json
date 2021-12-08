@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "Todolist",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "babel": "^6.23.0",
     "css-loader": "^6.5.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.3",
     "style-loader": "^3.3.1",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "abab": "^2.0.5",
@@ -590,7 +597,7 @@
   },
   "public": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "watch": "webpack --watch",
     "server": "node server.js",
     "start": "webpack serve --open",
