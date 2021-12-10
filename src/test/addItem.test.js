@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import add from '../addItem.js';
 
 jest.mock('../addItem');

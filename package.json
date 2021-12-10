@@ -13,11 +13,37 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
+  "scripts": {
+    "test": "jest  --coverage",
+    "watch": "webpack --watch",
+    "server": "node server.js",
+    "start": "webpack serve --open",
+    "deploy": "gh-pages -d dist",
+    "build": "webpack"
+  },
   "jest": {
+    "rootDir": "./",
     "verbose": true,
-    "testEnvironment": "jsdom"
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src**/*.{js}",
+      "!**/node_modules/**",
+      "!**/tools/**",
+      "!**/build/**",
+      "!**/docs/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "abab": "^2.0.5",
     "abbrev": "^1.1.1",
     "acorn": "^8.5.0",
@@ -52,6 +78,7 @@
     "aws4": "^1.11.0",
     "axe-core": "^4.3.5",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.2",
     "bail": "^1.0.5",
     "balanced-match": "^1.0.2",
     "base64-js": "^1.5.1",
@@ -596,14 +623,6 @@
     "zwitch": "^1.0.5"
   },
   "public": true,
-  "scripts": {
-    "test": "jest --coverage",
-    "watch": "webpack --watch",
-    "server": "node server.js",
-    "start": "webpack serve --open",
-    "deploy": "gh-pages -d dist",
-    "build": "webpack"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kingqabil/To-Do-List.git"
