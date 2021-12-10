@@ -13,11 +13,8 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "jest": {
-    "verbose": true,
-  },
   "scripts": {
-    "test": "jest  --coverage ",
+    "test": "jest",
     "watch": "webpack --watch",
     "server": "node server.js",
     "start": "webpack serve --open",
@@ -26,18 +23,6 @@
     "jest": "j sdom",
     "rootDir": "./"
   },
-  // "jest": {
-  //   "rootDir": "./",
-  //   "verbose": true,
-  //   "collectCoverage": true,
-  //   "collectCoverageFrom": [
-  //     "**/*.{js}",
-  //     "!**/node_modules/**",
-  //     "!**/tools/**",
-  //     "!**/build/**",
-  //     "!**/docs/**"
-  //   ]
-  // },
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
