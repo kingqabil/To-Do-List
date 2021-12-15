@@ -20,5 +20,7 @@ describe('Add function', () => {
   test('Add one new item to the list', () => {
     expect(add().length).toBe(2);
   });
-
+  test('Remove one new item from the list', () => {
+    expect(removeItem().length).toBe(0);
+  });
 });
