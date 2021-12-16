@@ -32,5 +32,7 @@ describe('Add function', () => {
   test('Update the index of list when one item is deleted', () => {
     expect(indexUpdate()).toEqual([1, 2]);
   });
-
+  test('Check list item when status changes', () => {
+    expect(status()).toBe(true);
+  });
 });
