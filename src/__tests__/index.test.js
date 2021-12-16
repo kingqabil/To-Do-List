@@ -26,4 +26,11 @@ describe('Add function', () => {
   test('Remove all completed items from list', () => {
     expect(clearAll().length).toBe(1);
   });
+  test('Edit a list item', () => {
+    expect(editItem()).toBe('some state...');
+  });
+  test('Update the index of list when one item is deleted', () => {
+    expect(indexUpdate()).toEqual([1, 2]);
+  });
+
 });
