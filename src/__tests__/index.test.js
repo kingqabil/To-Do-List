@@ -23,4 +23,7 @@ describe('Add function', () => {
   test('Remove one new item from the list', () => {
     expect(removeItem().length).toBe(0);
   });
+  test('Remove all completed items from list', () => {
+    expect(clearAll().length).toBe(1);
+  });
 });
